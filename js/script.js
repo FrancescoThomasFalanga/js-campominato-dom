@@ -85,11 +85,6 @@ playButtonEl.addEventListener("click", function() {
 
         // funzione bella
         howManySquare(cellNumber);
-
-
-
-
-
     }
 
     // disabilito il pulsante
@@ -209,14 +204,11 @@ function randomNumberUnique(maxNr) {
     // genero numero random con parametro che darà in base alla difficoltà escluso lo 0
     let random = Math.floor(Math.random() * maxNr) + 1;
     
-    random = Number(random);
-    
     // se non include tale numero, allora pushalo dentro l'array
     if(!haveIt.includes(random)) {
 
         haveIt.push(random);
         return random;
-
 
     // altrimenti restarta la funzione dall'inizio fin quando non si arriva alla lunghezza massima dell'array = 16
     } else {
