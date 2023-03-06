@@ -155,7 +155,7 @@ clearButtonEl.addEventListener("click", function() {
 
     
     // STYLE
-    bodyEl.style.backgroundImage = "url(../img/mhhh.jpg)";
+    bodyEl.style.backgroundImage = "url(./img/mhhh.jpg)";
     bodyEl.style.backgroundSize = "no-repeat";
     bodyEl.style.repeat = "no-repeat";
     // /STYLE
