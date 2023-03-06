@@ -41,11 +41,11 @@ playButtonEl.addEventListener("click", function() {
 
 
         // STYLE
-        gridContainerEl.style.backgroundImage = "url(../img/minecraft.jpg)"
+        gridContainerEl.style.backgroundImage = "url(./img/minecraft.jpg)";
         gridContainerEl.style.backgroundRepeat = "no-repeat";
         gridContainerEl.style.backgroundSize = "cover";
         gridContainerEl.style.color = "white";
-        bodyEl.style.backgroundImage = "url(../img/minecraftbg.jpg)"
+        bodyEl.style.backgroundImage = "url(./img/minecraftbg.jpg)";
         bodyEl.style.backgroundRepeat = "no-repeat";
         bodyEl.style.backgroundSize = "cover";
         // /STYLE
@@ -70,12 +70,12 @@ playButtonEl.addEventListener("click", function() {
     } else if (chooseDifficultInputEl === "1") {
 
         // STYLE
-        gridContainerEl.style.backgroundImage = "url(../img/warzone.jpg)";
+        gridContainerEl.style.backgroundImage = "url(./img/warzone.jpg)";
         gridContainerEl.style.backgroundRepeat = "no-repeat";
         gridContainerEl.style.backgroundSize = "cover";
         gridContainerEl.style.color = "white";
         gridContainerEl.style.backgroundPosition = "bottom";
-        bodyEl.style.backgroundImage = "url(../img/warzonebg.jpg)";
+        bodyEl.style.backgroundImage = "url(./img/warzonebg.jpg)";
         bodyEl.style.backgroundRepeat = "no-repeat";
         bodyEl.style.backgroundSize = "cover";
         // /STYLE
@@ -100,11 +100,11 @@ playButtonEl.addEventListener("click", function() {
     } else if (chooseDifficultInputEl === "2") {
 
         // STYLE
-        gridContainerEl.style.backgroundImage = "url(../img/soulslike.jpg)"
+        gridContainerEl.style.backgroundImage = "url(./img/soulslike.jpg)"
         gridContainerEl.style.backgroundRepeat = "no-repeat";
         gridContainerEl.style.backgroundSize = "cover";
         gridContainerEl.style.color = "white";
-        bodyEl.style.backgroundImage = "url(../img/soulslikebg.jpg)"
+        bodyEl.style.backgroundImage = "url(./img/soulslikebg.jpg)"
         bodyEl.style.backgroundRepeat = "no-repeat";
         bodyEl.style.backgroundSize = "cover";
         // /STYLE
