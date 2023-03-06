@@ -25,7 +25,7 @@ body {
 #grid-container {
     display: flex;
     flex-flow: row wrap;
-    margin: 30px auto;
+    margin: 0 auto;
     max-width: 1200px;
     width: calc(70px * 10);
 

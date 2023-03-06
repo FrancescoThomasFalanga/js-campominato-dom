@@ -18,7 +18,8 @@ let resultEl = document.getElementById("result");
 // inizializzo un array vuoto per inserirgli, tramite una funzione 16 numeri generati automaticamente
 let haveIt = [];
 
-let isWinOrLose = false;
+let isGameOver = false;
+let isWin = 0;
 
 
 // aggiungo funzione al click del bottone che genera la grigli in base al livello di difficoltà scelto
@@ -71,7 +72,7 @@ playButtonEl.addEventListener("click", function() {
         // ciclo for per generare solo 16 numeri all'interno dell'array
         for (i = 0; i < 16; i++) {
 
-            randomNumberUnique(1);
+            randomNumberUnique(49);
 
         }
 
@@ -108,7 +109,7 @@ clearButtonEl.addEventListener("click", function() {
     resultEl.innerText = "";
 
 
-    isWinOrLose = false;
+    isGameOver = false;
     
 
 });
@@ -128,16 +129,15 @@ function howManySquare(cellNumber) {
 
         newSquareEl.addEventListener("click", function() {
 
-            if (isWinOrLose) {
+            if (isGameOver) {
                 return;
             }
 
             if (haveIt.includes(parseInt(newSquareEl.innerText))) {
 
                 newSquareEl.classList.add("red");
-                console.log((i + 1) + " Hai beccato una BOMBA!");
-                isWinOrLose = true;
-                console.log("hai perso");
+
+                isGameOver = true;
 
                 resultEl.innerText = "Hai perso";
 
@@ -146,19 +146,24 @@ function howManySquare(cellNumber) {
                 newSquareEl.classList.add("light-blue");
                 console.log(i + 1);
 
+                        // incremento il contatore solo se la casella non è già stata selezionata
+                if (!newSquareEl.classList.contains("selected")) {
+                    isWin++;
+                    newSquareEl.classList.add("selected");
+                }
+
+                // se ho selezionato tutte le caselle light-blue, emetto il messaggio di vittoria
+                if (isWin === (cellNumber - haveIt.length)) {
+                    resultEl.innerText = "Hai vinto!";
+
+                }
+
             }
 
         })
 
         // appendiamolo al genitore
         gridContainerEl.append(newSquareEl);
-    }
-
-    // controllo se tutte le celle sono state selezionate
-    let remainingSquares = cellNumber - haveIt.length;
-    if (remainingSquares === 0) {
-        isWinOrLose = true;
-        console.log("Complimenti, hai vinto!");
     }
 
 }
