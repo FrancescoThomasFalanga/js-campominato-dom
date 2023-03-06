@@ -26,6 +26,7 @@ body {
     display: flex;
     flex-flow: row wrap;
     margin: 30px auto;
+    max-width: 1200px;
     width: calc(70px * 10);
 
 }
@@ -34,8 +35,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
     height: 70px;
+    width: 70px;
     border: 1px solid black;
     cursor: pointer;
 }
@@ -61,4 +62,10 @@ select, button {
     background-color: #b09367;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 32px;
 }
