@@ -111,6 +111,9 @@ clearButtonEl.addEventListener("click", function() {
     // setto di nuovo la variabile al suo valore iniziale
     isGameOver = false;
 
+    // riporto il punteggio a 0
+    isWin = 0;
+
 });
 
 
