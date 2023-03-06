@@ -41,14 +41,6 @@ body {
     cursor: pointer;
 }
 
-.light-blue {
-    background-color: #38b9e0;
-}
-
-.red {
-    background-color: red;
-}
-
 .choose-menu {
     display: flex;
     align-items: center;
@@ -68,4 +60,13 @@ select, button {
     margin-top: 20px;
     text-align: center;
     font-size: 32px;
+}
+
+
+.light-blue {
+    background-color: #38b9e0;
+}
+
+.red {
+    background-color: red;
 }

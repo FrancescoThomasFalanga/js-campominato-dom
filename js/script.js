@@ -9,7 +9,7 @@ della cella cliccata.
 */
 
 
-// inizializzo il contenitore degli square e il bottone che lo andrà a generare
+// inizializzo il contenitore degli square, il bottone che lo andrà a generare, il bottone per cancellare tutto e il risultato in pagina
 let gridContainerEl = document.getElementById("grid-container");
 let playButtonEl = document.getElementById("play-button");
 let clearButtonEl = document.getElementById("clear-button");
@@ -18,6 +18,8 @@ let resultEl = document.getElementById("result");
 // inizializzo un array vuoto per inserirgli, tramite una funzione 16 numeri generati automaticamente
 let haveIt = [];
 
+// inizializzo due variabili, una per il gameOver che inizializzo a false che fa continuare tutto, e un contatore che inizializzo
+// a zero per aiutarmi a gestire quante caselle con classe light-blue vengono cliccate
 let isGameOver = false;
 let isWin = 0;
 
@@ -83,8 +85,6 @@ playButtonEl.addEventListener("click", function() {
 
         // funzione bella
         howManySquare(cellNumber);
-
-        console.log(haveIt);
     }
 
     // disabilito il pulsante
@@ -108,9 +108,8 @@ clearButtonEl.addEventListener("click", function() {
     // rimuovo il risultato in pagina
     resultEl.innerText = "";
 
-
+    // setto di nuovo la variabile al suo valore iniziale
     isGameOver = false;
-    
 
 });
 
@@ -123,33 +122,41 @@ clearButtonEl.addEventListener("click", function() {
 function howManySquare(cellNumber) {
 
     for (let i = 0; i < cellNumber; i++) {
-    
+        
+        // creo square con innertext il numero della cella
         let newSquareEl = createSquare(i + 1);
 
-
+        // al click dello square questo:
         newSquareEl.addEventListener("click", function() {
 
+            // se isGameOver è false allora continua
             if (isGameOver) {
                 return;
             }
 
+            // se l'array contiene lo stesso numero che ha una determinata cella allora:
             if (haveIt.includes(parseInt(newSquareEl.innerText))) {
 
+                // aggiungo background-color RED alle BOMBE
                 newSquareEl.classList.add("red");
 
+                // se è true ferma tutto
                 isGameOver = true;
 
-                resultEl.innerText = "Hai perso";
+                // risultato in pagina GAME OVER
+                resultEl.innerText = "Hai perso!";
 
             } else {
 
+                // aggiungo background-color AZZURRO alle celle normali
                 newSquareEl.classList.add("light-blue");
                 console.log(i + 1);
 
-                        // incremento il contatore solo se la casella non è già stata selezionata
+                // incremento il contatore solo se la casella non è già stata selezionata
                 if (!newSquareEl.classList.contains("selected")) {
                     isWin++;
                     newSquareEl.classList.add("selected");
+                    resultEl.innerText = "Punteggio: " + isWin;
                 }
 
                 // se ho selezionato tutte le caselle light-blue, emetto il messaggio di vittoria
@@ -177,8 +184,10 @@ function createSquare(text) {
     // dargli una classe
     newEl.classList.add("square");
 
+    // dirgli cosa visualizzare in pagina
     newEl.innerText = text ;
 
+    // cosa deve tornare questa variabile quando viene chiamata
     return newEl;
 
 }
@@ -187,16 +196,19 @@ function createSquare(text) {
 // numero random del computer
 function randomNumberUnique(maxNr) {
 
+    // genero numero random con parametro che darà in base alla difficoltà escluso lo 0
     let random = Math.floor(Math.random() * maxNr) + 1;
     
-    //Coerce to number by boxing
     random = Number(random);
     
+    // se non include tale numero, allora pushalo dentro l'array
     if(!haveIt.includes(random)) {
 
         haveIt.push(random);
         return random;
 
+
+    // altrimenti restarta la funzione dall'inizio fin quando non si arriva alla lunghezza massima dell'array = 16
     } else {
             
         if(haveIt.length < maxNr) {
