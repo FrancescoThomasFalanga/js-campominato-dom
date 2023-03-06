@@ -85,6 +85,11 @@ playButtonEl.addEventListener("click", function() {
 
         // funzione bella
         howManySquare(cellNumber);
+
+
+
+
+
     }
 
     // disabilito il pulsante
@@ -137,8 +142,14 @@ function howManySquare(cellNumber) {
             // se l'array contiene lo stesso numero che ha una determinata cella allora:
             if (haveIt.includes(parseInt(newSquareEl.innerText))) {
 
-                // aggiungo background-color RED alle BOMBE
-                newSquareEl.classList.add("red");
+                let allSquareEl = document.querySelectorAll(".square");
+                for (let j = 0; j < allSquareEl.length; j++) {
+
+                    if (haveIt.includes(parseInt(allSquareEl[j].innerText))) {
+                        allSquareEl[j].classList.add("red");
+                    }
+
+                }
 
                 // se è true ferma tutto
                 isGameOver = true;
