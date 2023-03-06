@@ -148,7 +148,6 @@ function howManySquare(cellNumber) {
                     if (haveIt.includes(parseInt(allSquareEl[j].innerText))) {
                         allSquareEl[j].classList.add("red");
                     }
-
                 }
 
                 // se è true ferma tutto
