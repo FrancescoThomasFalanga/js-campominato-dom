@@ -44,18 +44,13 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
-        console.log(haveIt);
-
-        // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
-        haveIt = [];
-
     // difficoltà normale
     } else if (chooseDifficultInputEl === "1") {
 
         // ciclo for per generare solo 16 numeri all'interno dell'array
         for (i = 0; i < 16; i++) {
 
-            randomNumberUnique(100);
+            randomNumberUnique(81);
 
         }
 
@@ -67,18 +62,13 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
-        console.log(haveIt);
-
-        // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
-        haveIt = [];
-
     // difficoltà difficile
     } else if (chooseDifficultInputEl === "2") {
 
         // ciclo for per generare solo 16 numeri all'interno dell'array
         for (i = 0; i < 16; i++) {
 
-            randomNumberUnique(100);
+            randomNumberUnique(49);
 
         }
 
@@ -90,11 +80,7 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
-        console.log(haveIt);
-
-        // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
-        haveIt = [];
-
+        console.log(haveIt)
     }
 
     // disabilito il pulsante
@@ -105,12 +91,16 @@ playButtonEl.addEventListener("click", function() {
 
 // aggiungo funzione al click del bottone che svuota la griglia
 clearButtonEl.addEventListener("click", function() {
-
+    
     // svuoto il contenuto in pagina
     gridContainerEl.innerHTML = "";
-
+    
     // riabilito il pulsante
     playButtonEl.disabled = false;
+    
+    // svuoto l'array ogni volta che si clicca sul pulsante CLEAR
+    haveIt = [];
+    
 
 });
 
@@ -132,12 +122,12 @@ function howManySquare(cellNumber) {
             if (haveIt.includes(parseInt(newSquareEl.innerText))) {
 
                 newSquareEl.classList.add("red");
-                console.log(i + 1);
-                console.log("dsadas");
+                console.log((i + 1) + " Hai beccato una BOMBA!");
 
             } else {
 
                 newSquareEl.classList.add("light-blue");
+                console.log(i + 1);
             }
 
         })
@@ -167,7 +157,7 @@ function createSquare(text) {
 // numero random del computer
 function randomNumberUnique(maxNr) {
 
-    let random = Math.floor(Math.random() * maxNr).toFixed();
+    let random = Math.floor(Math.random() * maxNr) + 1;
     
     //Coerce to number by boxing
     random = Number(random);
