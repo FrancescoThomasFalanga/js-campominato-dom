@@ -44,6 +44,8 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
+        console.log(haveIt);
+
         // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
         haveIt = [];
 
@@ -65,6 +67,8 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
+        console.log(haveIt);
+
         // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
         haveIt = [];
 
@@ -85,6 +89,8 @@ playButtonEl.addEventListener("click", function() {
 
         // funzione bella
         howManySquare(cellNumber);
+
+        console.log(haveIt);
 
         // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
         haveIt = [];
@@ -123,8 +129,17 @@ function howManySquare(cellNumber) {
 
         newSquareEl.addEventListener("click", function() {
 
-            newSquareEl.classList.toggle("light-blue");
-            console.log(i + 1);
+            if (haveIt.includes(parseInt(newSquareEl.innerText))) {
+
+                newSquareEl.classList.add("red");
+                console.log(i + 1);
+                console.log("dsadas");
+
+            } else {
+
+                newSquareEl.classList.add("light-blue");
+            }
+
         })
 
         // appendiamolo al genitore
@@ -152,25 +167,24 @@ function createSquare(text) {
 // numero random del computer
 function randomNumberUnique(maxNr) {
 
-        let random = Math.floor(Math.random() * maxNr).toFixed();
+    let random = Math.floor(Math.random() * maxNr).toFixed();
     
-        //Coerce to number by boxing
-        random = Number(random);
+    //Coerce to number by boxing
+    random = Number(random);
     
-        if(!haveIt.includes(random)) {
+    if(!haveIt.includes(random)) {
 
-            haveIt.push(random);
-            return random;
+        haveIt.push(random);
+        return random;
 
-        } else {
+    } else {
             
-            if(haveIt.length < maxNr) {
+        if(haveIt.length < maxNr) {
+    
+            return  randomNumberUnique(maxNr);
 
-                //Recursively generate number
-                return  randomNumberUnique(maxNr);
-
-            }
         }
+    }
 
 }
 

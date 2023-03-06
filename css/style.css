@@ -44,6 +44,10 @@ body {
     background-color: #38b9e0;
 }
 
+.red {
+    background-color: red;
+}
+
 .choose-menu {
     display: flex;
     align-items: center;
