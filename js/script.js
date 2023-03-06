@@ -14,6 +14,9 @@ let gridContainerEl = document.getElementById("grid-container");
 let playButtonEl = document.getElementById("play-button");
 let clearButtonEl = document.getElementById("clear-button");
 
+// inizializzo un array vuoto per inserirgli, tramite una funzione 16 numeri generati automaticamente
+let haveIt = [];
+
 
 // aggiungo funzione al click del bottone che genera la grigli in base al livello di difficoltà scelto
 playButtonEl.addEventListener("click", function() {
@@ -26,6 +29,13 @@ playButtonEl.addEventListener("click", function() {
     // difficoltà facile
     if (chooseDifficultInputEl === "0") {
 
+        // ciclo for per generare solo 16 numeri all'interno dell'array
+        for (i = 0; i < 16; i++) {
+
+            randomNumberUnique(100);
+
+        }
+
         gridContainerEl.style.width = "calc(70px * 10)";
 
         // in facile gli square devono essere 100
@@ -34,8 +44,18 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
+        // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
+        haveIt = [];
+
     // difficoltà normale
     } else if (chooseDifficultInputEl === "1") {
+
+        // ciclo for per generare solo 16 numeri all'interno dell'array
+        for (i = 0; i < 16; i++) {
+
+            randomNumberUnique(100);
+
+        }
 
         gridContainerEl.style.width = "calc(70px * 9)";
 
@@ -45,8 +65,18 @@ playButtonEl.addEventListener("click", function() {
         // funzione bella
         howManySquare(cellNumber);
 
+        // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
+        haveIt = [];
+
     // difficoltà difficile
     } else if (chooseDifficultInputEl === "2") {
+
+        // ciclo for per generare solo 16 numeri all'interno dell'array
+        for (i = 0; i < 16; i++) {
+
+            randomNumberUnique(100);
+
+        }
 
         gridContainerEl.style.width = "calc(70px * 7)";
 
@@ -55,6 +85,9 @@ playButtonEl.addEventListener("click", function() {
 
         // funzione bella
         howManySquare(cellNumber);
+
+        // svuoto l'array, altrimenti genera ulteriori numeri al suo interno
+        haveIt = [];
 
     }
 
@@ -115,4 +148,30 @@ function createSquare(text) {
 
 }
 
-// /FUNCTION //
+
+// numero random del computer
+function randomNumberUnique(maxNr) {
+
+        let random = Math.floor(Math.random() * maxNr).toFixed();
+    
+        //Coerce to number by boxing
+        random = Number(random);
+    
+        if(!haveIt.includes(random)) {
+
+            haveIt.push(random);
+            return random;
+
+        } else {
+            
+            if(haveIt.length < maxNr) {
+
+                //Recursively generate number
+                return  randomNumberUnique(maxNr);
+
+            }
+        }
+
+}
+
+// /FUNCTION
