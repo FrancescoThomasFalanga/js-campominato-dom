@@ -27,65 +27,7 @@ let isWin = 0;
 // aggiungo funzione al click del bottone che genera la grigli in base al livello di difficoltà scelto
 playButtonEl.addEventListener("click", function() {
 
-    // inizializzo il controllo della difficoltà all'interno della funzione CLICK così da non stamparla immediatamente al lancio del programma
-    let chooseDifficultInputEl = document.getElementById("choose-difficult").value;
-    // inizializzo un contatore vuoto
-    let cellNumber;
-
-    // difficoltà facile
-    if (chooseDifficultInputEl === "0") {
-
-        // ciclo for per generare solo 16 numeri all'interno dell'array
-        for (i = 0; i < 16; i++) {
-
-            randomNumberUnique(100);
-
-        }
-
-        gridContainerEl.style.width = "calc(70px * 10)";
-
-        // in facile gli square devono essere 100
-        cellNumber = 100;
-
-        // funzione bella
-        howManySquare(cellNumber);
-
-    // difficoltà normale
-    } else if (chooseDifficultInputEl === "1") {
-
-        // ciclo for per generare solo 16 numeri all'interno dell'array
-        for (i = 0; i < 16; i++) {
-
-            randomNumberUnique(81);
-
-        }
-
-        gridContainerEl.style.width = "calc(70px * 9)";
-
-        // in normale gli square devono essere 81
-        cellNumber = 81;
-
-        // funzione bella
-        howManySquare(cellNumber);
-
-    // difficoltà difficile
-    } else if (chooseDifficultInputEl === "2") {
-
-        // ciclo for per generare solo 16 numeri all'interno dell'array
-        for (i = 0; i < 16; i++) {
-
-            randomNumberUnique(49);
-
-        }
-
-        gridContainerEl.style.width = "calc(70px * 7)";
-
-        // in difficile gli square devono essere 49
-        cellNumber = 49;
-
-        // funzione bella
-        howManySquare(cellNumber);
-    }
+    chooseDifficult(document.getElementById("choose-difficult"));
 
     // disabilito il pulsante
     playButtonEl.disabled = true;
@@ -120,6 +62,70 @@ clearButtonEl.addEventListener("click", function() {
 
 
 // FUNCTION //
+
+function chooseDifficult(difficultyElement) {
+
+        // inizializzo il controllo della difficoltà all'interno della funzione CLICK così da non stamparla immediatamente al lancio del programma
+        let chooseDifficultInputEl = difficultyElement.value;
+        // inizializzo un contatore vuoto
+        let cellNumber;
+    
+        // difficoltà facile
+        if (chooseDifficultInputEl === "0") {
+    
+            // ciclo for per generare solo 16 numeri all'interno dell'array
+            for (i = 0; i < 16; i++) {
+    
+                randomNumberUnique(100);
+    
+            }
+    
+            gridContainerEl.style.width = "calc(70px * 10)";
+    
+            // in facile gli square devono essere 100
+            cellNumber = 100;
+    
+            // funzione bella
+            howManySquare(cellNumber);
+    
+        // difficoltà normale
+        } else if (chooseDifficultInputEl === "1") {
+    
+            // ciclo for per generare solo 16 numeri all'interno dell'array
+            for (i = 0; i < 16; i++) {
+    
+                randomNumberUnique(81);
+    
+            }
+    
+            gridContainerEl.style.width = "calc(70px * 9)";
+    
+            // in normale gli square devono essere 81
+            cellNumber = 81;
+    
+            // funzione bella
+            howManySquare(cellNumber);
+    
+        // difficoltà difficile
+        } else if (chooseDifficultInputEl === "2") {
+    
+            // ciclo for per generare solo 16 numeri all'interno dell'array
+            for (i = 0; i < 16; i++) {
+    
+                randomNumberUnique(49);
+    
+            }
+    
+            gridContainerEl.style.width = "calc(70px * 7)";
+    
+            // in difficile gli square devono essere 49
+            cellNumber = 49;
+    
+            // funzione bella
+            howManySquare(cellNumber);
+        }
+}
+
 
 // funzione per capire quanti square generare in base alla difficoltà, e come dividere le righe.
 function howManySquare(cellNumber) {
