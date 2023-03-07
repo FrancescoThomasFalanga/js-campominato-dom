@@ -38,8 +38,9 @@ body {
     align-items: center;
     height: 70px;
     width: 70px;
-    border: 1px solid black;
+    border: 1px solid white;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.925);
 }
 
 .choose-menu {
@@ -67,10 +68,10 @@ select, button {
 
 
 .black {
-    background-color: #000000;
-    color: #000000;
+    background-color: inherit;
 }
 
 .red {
-    background-color: #ee400e;
+    background-color: rgb(88, 0, 0);
+    color: rgb(88, 0, 0);
 }

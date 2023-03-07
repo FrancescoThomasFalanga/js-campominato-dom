@@ -52,7 +52,7 @@ playButtonEl.addEventListener("click", function() {
 
 
         // ciclo for per generare solo 16 numeri all'interno dell'array
-        for (i = 0; i < 16; i++) {
+        for (i = 0; i < 8; i++) {
 
             randomNumberUnique(100);
 
@@ -82,7 +82,7 @@ playButtonEl.addEventListener("click", function() {
 
 
         // ciclo for per generare solo 16 numeri all'interno dell'array
-        for (i = 0; i < 16; i++) {
+        for (i = 0; i < 8; i++) {
 
             randomNumberUnique(81);
 
@@ -111,7 +111,7 @@ playButtonEl.addEventListener("click", function() {
 
 
         // ciclo for per generare solo 16 numeri all'interno dell'array
-        for (i = 0; i < 16; i++) {
+        for (i = 0; i < 8; i++) {
 
             randomNumberUnique(49);
 
